@@ -1,0 +1,47 @@
+.purpose {
+  &__name {
+    p {
+      font-size: 52px;
+      font-family: $ff-roboto-1;
+      font-weight: 300;
+      line-height: 115%;
+      margin: 0;
+
+      color: $color-dark-blue;
+    }
+  }
+
+  &__info {
+    margin-bottom: 48px;
+  }
+
+  &__list {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 103px;
+
+    max-width: 1249px;
+    min-height: 215px;
+    margin: 0 auto;
+  }
+
+  &__text {
+    p {
+      font-family: $ff-roboto-1;
+      font-weight: 400;
+      font-size: 22px;
+
+      line-height: 136%;
+      text-align: center;
+      color: $color-dark-blue;
+    }
+  }
+
+  &__img {
+    img {
+      margin: auto;
+    }
+  }
+}

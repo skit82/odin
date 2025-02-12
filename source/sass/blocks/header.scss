@@ -1,13 +1,303 @@
 .header {
-  padding: 28px 0;
+  padding-top: 6px;
+  background: url("../img/content/banner-bg.jpg"), linear-gradient(315deg, rgba(0, 53, 228, 0.4) 0%, rgba(153167, 255, 0.4) 100%);
+  backdrop-filter: blur(3px);
+  min-height: 900px;
+  // overflow: hidden;
 
-  background-color: $color-neon-blue;
 
-  .container {
+  &__top {
     display: flex;
+    // flex-shrink: 0;
   }
 
   &__logo {
+    flex: 0 1 300px;
     color: $color-default-white;
   }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__main-menu-item {
+    position: relative;
+    display: flex;
+    // min-height: 102px;
+    padding: 33px 0;
+    align-items: center;
+    // align-items: baseline;
+    transition: color $trans-default, opacity $trans-default;
+
+    svg {
+      width: 30px;
+      height: 30px;
+      // margin-left: 8px;
+      padding-top: 3px;
+      color: #ffffff;
+      transition: color $trans-default, opacity $trans-default, transform $trans-500;
+    }
+
+    @media (hover: hover), screen and (min-width: 0\0) {
+      &:hover,
+      &:focus {
+        .header__sub-menu {
+          display: block;
+        }
+        .header__menu-toggle svg {
+          transform: rotate(180deg);
+
+        }
+
+        .header__main-menu-link {
+
+        }
+      }
+    }
+  }
+
+  &__sub-menu {
+    position: absolute;
+    left: 0;
+    top: 100%;
+
+    min-width: 360px;
+    // max-height: 0;
+    // background-color: $color-transport-black;
+    transition: max-height $trans-default;
+    overflow: hidden;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.35);
+
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    z-index: 10;
+    display: none;
+
+    &.is-menu-open {
+      display: block;
+    }
+  }
+
+
+  &__menu-toggle img.header__sub-menu:hover {
+    display: block;
+  }
+
+  &__main-menu-link {
+    font-weight: 500;
+    font-size: clamp(0.875rem, 0.7275rem + 0.7377vw, 1.4375rem);
+    line-height: 32px;
+    padding: 0 8px;
+    margin: 0;
+
+    // color: $color-light-grey;
+    transition: color $trans-default, opacity $trans-default;
+
+    @media (hover: hover), screen and (min-width: 0\0) {
+      &:hover,
+      &:focus {
+        // color: $color-blue-azure;      }
+      }
+    }
+  }
+
+  &__menu-toggle {
+    position: relative;
+    z-index: 33;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0;
+    padding: 0;
+
+    // width: 67px;
+    height: 28px;
+    // margin-right: 35px;
+    // margin-left: 10px;
+
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    @media (hover: hover), screen and (min-width: 0\0) {
+      &:hover,
+      &:focus {
+        span {
+          opacity: 0.7;
+        }
+      }
+    }
+
+    &.no-pointer {
+      pointer-events: none;
+      cursor: defaults;
+    }
+  }
+
+  &__menu-toggle span {
+    width: 50px;
+    height: 3px;
+
+     @include vp-767 {
+      width: 35px;
+    }
+
+      transition: transform $trans-default, opacity $trans-default;
+      // background-color: $color-light-grey;
+    }
+
+    &__menu-toggle span:first-child {
+      margin-bottom: 10px;
+    }
+
+    &__menu-toggle span:last-child {
+      margin-top: 10px;
+  }
+
+  &__menu-toggle.is-open img,
+  &__menu-toggle[aria-pressed=true] img {
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+
+  &__menu-toggle[aria-pressed="false"] {
+    z-index: 0;
+  }
+
+  &__menu-toggle[aria-pressed="true"] {
+    background-color: transparent;
+  }
+  &__menu-toggle[aria-pressed="true"] {
+    background-color: transparent;
+  }
+
+  &__menu-toggle[aria-pressed=true] span:first-child {
+    transform: translateY(10px) rotate(45deg);
+  }
+
+  &__menu-toggle[aria-pressed=true] span:nth-child(2) {
+    opacity: 0;
+  }
+
+  &__menu-toggle[aria-pressed=true] span:last-child {
+    transform: translateY(-14px) rotate(-45deg);
+  }
+
+  &__mob {
+    display: grid;
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    width: 100%;
+    min-height: 100vh;
+    min-height: calc(100*var(--vh, 1vh));
+    -webkit-transform: translateX(-110%) translateZ(0);
+    transform: translateX(-110%) translateZ(0);
+    -webkit-transition: left .3s ease,-webkit-transform .3s ease;
+    -o-transition: transform .3s ease,left .3s ease;
+    transition: transform .3s ease,left .3s ease;
+    transition: transform .3s ease,left .3s ease,-webkit-transform .3s ease;
+    position: fixed;
+    z-index: 12;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow-y: scroll;
+    // padding: 40px;
+    padding-top: 150px;
+    // padding-left: 110px;
+    // background-color: $color-transport-black;
+
+
+    @include vp-1023 {
+      padding-top: 120px;
+    }
+
+    @include vp-767 {
+      padding-top: 100px;
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+
+    &.is-menu-open {
+      transform: translateX(0) translateZ(0);
+    }
+  }
+}
+
+.header {
+
+  &.is-fixed {
+    // position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 12;
+
+    @include vp-1023 {
+      transform: translateY(calc(-100% - 10px));
+    }
+  }
+
+  &.is-animate {
+    @include vp-1023{
+      transition: transform $trans-modal;
+    }
+  }
+
+  &.is-scrolled {
+    @include vp-1023 {
+      transform: translateY(0);
+    }
+  }
+}
+
+.header__menu-toggle.is-menu-open {
+  border-color: transparent;
+
+  @media (hover: hover), screen and (min-width: 0\0) {
+    &:hover,
+    &:focus {
+      // border-color: $color-burnt-orange;
+    }
+  }
+}
+
+.header__menu-toggle span {
+  width: 50px;
+  height: 3px;
+
+  transition: transform $trans-default;
+  // background-color: $color-light-grey;
+
+  @include vp-1023 {
+    width: 35px;
+  }
+}
+
+.header__menu-toggle span:first-child {
+  margin-bottom: 10px;
+}
+
+.header__menu-toggle[aria-pressed=true] span:first-child {
+  transform: translateY(10px) rotate(45deg);
+}
+
+.header__menu-toggle[aria-pressed=true] span:last-child {
+  transform: translateY(-14px) rotate(-45deg);
+}
+
+.header__main-menu-item:hover .header__sub-menu {
+  display: block;
+}
+
+.header__main-menu-item > .header__menu-toggle img:hover {
+  transform: rotate(180deg);
 }

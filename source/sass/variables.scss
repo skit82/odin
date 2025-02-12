@@ -5,30 +5,7 @@
 
 $color-default-black:               #000000;
 $color-default-white:               #ffffff;
-$color-transparent:                 rgba(255, 255, 255, 0);
-$color-light-grey:                  #e9e6e6;
-$color-transport-black:             #1e1e1e;
-$color-light-grey-2:                #838282;
-$color-light-grey-3:                #c4c4c4;
-$color-light-grey-4:                #f3f3f3;
-$color-light-grey-5:                #b2b2b2;
-$color-light-grey-6:                #b7b7b7;
-$color-blue-azure:                  #4842c6;
-$color-grey-chateau:                #989da3;
-$color-grey-chateau-1:              #6f6f6f;
-$color-ebony:                       #2a2d34;
-
-$color-burnt-orange:                #fe6b3d;
-$color-mosque:                      #006054;
-$color-genoa:                       #338076;
-$color-grey-chateau:                #989da3;
-$color-grey-chateau-2:              #a2a5a7;
-$color-solitude:                    #e6ecf2;
-$color-lavender:                    #eaeaeb;
-$color-sea-buckthorn:               #f2994a;
-$color-shuttle-grey:                #626365;
-$color-ghost-white:                 #f6f6f7;
-$color-ghost-white-1:               #f7f7f7;
+$color-dark-blue:                   #163557;
 
 // Project palette
 // для нейминга цветов используем https://www.htmlcsscolor.com/hex/334482
@@ -54,6 +31,8 @@ $ff-placeholder:                    "Placeholder", "Arial", sans-serif;
 
 $ff-montserrat:                      "Montserrat", "Arial", sans-serif;
 
+$ff-roboto:                          "Roboto Condensed", "Arial", sans-serif;
+
 // Animation
 // ---------------------------------
 
@@ -71,7 +50,7 @@ $trans-1200:                         1.2s $tf-default;
 // ---------------------------------
 
 $vp-325:                            325px;
-$vp-375:                            375px;
+$vp-360:                            360px;
 $vp-450:                            450px;
 $vp-530:                            530px;
 $vp-580:                            580px;

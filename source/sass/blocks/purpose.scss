@@ -12,7 +12,7 @@
   }
 
   &__info {
-    margin-bottom: 48px;
+    margin-bottom: 68px;
   }
 
   &__list {
@@ -29,9 +29,10 @@
 
   &__text {
     p {
-      font-family: $ff-roboto-1;
+      font-family: $ff-roboto;
       font-weight: 400;
       font-size: 22px;
+      margin: 0;
 
       line-height: 136%;
       text-align: center;

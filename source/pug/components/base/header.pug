@@ -1,31 +1,56 @@
 mixin header(headerMods, currentUrl)
+  -
+    const headerLinks = [
+      {
+        href: "#",
+        text: "Порошковая краска"
+      },
+      {
+        href: "#",
+        text: "Производство"
+      },
+      {
+        href: "#",
+        text: "Лаборатория"
+      },
+      {
+        href: "#",
+        text: "Контакты"
+      },
+    ]
 
-  header.header(class=headerMods, data-mob-menu="burger-mod", data-fix-block, data-burger="header")
-      .header__wrapper
-        .header__container
-          if(currentUrl === "index.html")
-            //- lighthouse снимает 10 баллов SEO за <a> без href
-            .header__top
-              span.header__logo(data-mob-menu="burger-mod")
-                img(src="./img/svg/logo.svg", widht="403", height="45", alt="Логотип компании")
-          else
-            .header__top
-              a.header__logo(href="index.html", aria-label="Переход на главную", data-mob-menu="burger-mod")
-                img(src="./img/svg/logo.svg", widht="403", height="45", alt="Логотип компании")
-          nav.header__nav
+  header.header(class=headerMods, data-mob-menu="burger-mod", data-fix-block)
+      if(currentUrl === "index.html")
+        //- lighthouse снимает 10 баллов SEO за <a> без href
+        span.header__logo-mobile
+          img(src="./img/svg/logo.svg", widht="403", height="45", alt="Логотип компании")
+      else
+        a.header__logo(href="index.html", aria-label="Переход на главную")
+          img(src="./img/svg/logo.svg", widht="403", height="45", alt="Логотип компании")
+      button.header__menu-toggle(type="button", aria-label="Переключатель отображения меню", aria-pressed="false", data-mob-menu="menu-toggle")
+        span
+        span
+      .header__wrapper(data-mob-menu="burger-mod")
+        if(currentUrl === "index.html")
+          //- lighthouse снимает 10 баллов SEO за <a> без href
+          span.header__logo(data-mob-menu="burger-mod")
+            img(src="./img/svg/logo.svg", widht="403", height="45", alt="Логотип компании")
+        else
+          a.header__logo(href="index.html", aria-label="Переход на главную", data-mob-menu="burger-mod")
+            img(src="./img/svg/logo.svg", widht="403", height="45", alt="Логотип компании")
+        nav.header__nav(data-mob-menu="burger-mod")
+          .header__nav-wrapper
             ul.header__main-menu(data-dropdown="block-left-parent")
-              li.header__main-menu-item
-                a.header__main-menu-link(href="#", aria-label="Главная", data-dropdown="trigger") Порошковая краска
-              li.header__main-menu-item
-                a.header__main-menu-link(href="about-us.html", aria-label="О нас", data-dropdown="trigger") Производство
-              li.header__main-menu-item
-                a.header__main-menu-link(href="works.html", aria-label="Наши работы", data-dropdown="trigger") Лаборатория
-              li.header__main-menu-item
-                a.header__main-menu-link(href="works.html", aria-label="Наши работы", data-dropdown="trigger") Контакты
-          button.header__menu-toggle(type="button", aria-label="Переключатель отображения меню", aria-pressed="false", data-mob-menu="menu-toggle")
-            span
-            span
-            span
+              each link in headerLinks
+                - const activeState = currentUrl === link.href
+                li.header__main-menu-item
+                  if(activeState)
+                    a.header__main-menu-link.is-active(href=link.href, data-dropdown="trigger")=link.text
+                  else
+                    a.header__main-menu-link(href=link.href, data-dropdown="trigger")=link.text
+        .header__contact
+          p #[a(href="tel:+78482697651", class="contact__phone") +7 8482 69 76 51]
+          p #[a(href="tel:+78482697655", class="contact__phone") +7 8482 69 76 55]
       .container
         .info
           .info__wrapper

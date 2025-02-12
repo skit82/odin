@@ -1,0 +1,32 @@
+.advantage {
+  &__name {
+    p {
+      font-size: 52px;
+      font-family: $ff-roboto-1;
+      font-weight: 300;
+      line-height: 115%;
+      margin: 0;
+
+      color: $color-dark-blue;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    p {
+      font-size: 22px;
+      font-weight: 300;
+      font-family: $ff-roboto-1;
+      line-height: 145%;
+
+      margin: 0;
+
+      color: $color-dark-blue;
+    }
+  }
+}

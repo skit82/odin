@@ -30,6 +30,7 @@ mixin header(headerMods, currentUrl)
       button.header__menu-toggle(type="button", aria-label="Переключатель отображения меню", aria-pressed="false", data-mob-menu="menu-toggle")
         span
         span
+        span
       .header__wrapper(data-mob-menu="burger-mod")
         if(currentUrl === "index.html")
           //- lighthouse снимает 10 баллов SEO за <a> без href
@@ -54,13 +55,36 @@ mixin header(headerMods, currentUrl)
       .container
         .info
           .info__wrapper
-            .info__title
-              p Производим и поставляем span Порошковую краску
-            ul.info__list
-              li.info__item
-                p собственное производство
-              li.info__item
-                p уникальная рецептура
-              li.info__item
-                p строгий контроль качества
+            .info__inner
+              .info__title
+                p Производим и поставляем
+                h1.title Порошковую краску
+              ul.info__list
+                li.info__item
+                  p собственное производство
+                li.info__item
+                  p уникальная рецептура
+                li.info__item
+                  p строгий контроль качества
+            .info__certificate.certificate
+              .certificate__content
+                .certificate__description
+                  .certificate__description-img
+                    +icon("icon-iso", 60, 60)
+                  .certificate__description-box
+                    .certificate__description-text
+                      p Сертификат ISO 9001:2024*
+                    .certificate__description-icon
+                      +icon("icon-upload", 26, 29)
+                .certificate__description
+                  .certificate__description-img
+                    +icon("icon-iatf", 88, 60)
+                  .certificate__description-box
+                    .certificate__description-text
+                      p Сертификат IATF 16949*
+                    .certificate__description-icon
+                      +icon("icon-upload", 26, 29)
+              .certificate__copyright
+                p * Сертификаты будут доступны с марта 2025 года
+
 

@@ -1,4 +1,37 @@
 .advantage {
+  &__wrapper {
+    display: flex;
+    margin-bottom: 60px;
+
+    @include vp-1439 {
+      margin-bottom: 88px;
+    }
+  }
+
+  &__description {
+    flex: 0 1 50%;
+  }
+
+  &__picture {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 1 50%;
+
+    margin-top: -22px;
+
+    @include vp-1439 {
+      margin-top: -13px;
+      margin-right: 38px;
+    }
+
+    img {
+      @include vp-1439 {
+        width: 384px;
+      }
+    }
+  }
+
   &__name {
     p {
       font-size: 52px;
@@ -6,14 +39,21 @@
       font-weight: 300;
       line-height: 115%;
       margin: 0;
-      margin-bottom: 48px;
 
       color: $color-dark-blue;
+
+      @include vp-1439 {
+        font-size: 40px;
+      }
     }
   }
 
   &__info {
     margin-bottom: 48px;
+
+    @include vp-1439 {
+      margin-bottom: 44px;
+    }
   }
 
   &__list {
@@ -22,12 +62,20 @@
     padding: 0;
 
     margin-left: 96px;
+
+    @include vp-1439 {
+      margin-left: 42px;
+    }
   }
 
   &__item {
     position: relative;
     padding-left: 25px;
     margin-bottom: 21px;
+
+    @include vp-1439 {
+      margin-bottom: 17px;
+    }
 
     &::before {
       position: absolute;
@@ -38,6 +86,9 @@
       height: 3px;
       background-color: $color-blue-blue;
 
+      @include vp-1439 {
+        top: 13px;
+      }
     }
 
     p {
@@ -49,6 +100,10 @@
       margin: 0;
 
       color: $color-dark-blue;
+
+      @include vp-1439 {
+        font-size: 20px;
+      }
     }
   }
 }
